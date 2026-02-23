@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منصة طلبات الخدمات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>منصة طلبات الخدمات</h1>
+    <div id="userBadge"></div>
+  </header>
+
+  <main class="layout">
+    <section class="card" id="authCard">
+      <h2>تسجيل / دخول</h2>
+      <div class="tabs">
+        <button class="tab active" data-tab="register">إنشاء حساب</button>
+        <button class="tab" data-tab="login">تسجيل الدخول</button>
+      </div>
+
+      <form id="registerForm" class="form active">
+        <label>الاسم الكامل<input required name="name" /></label>
+        <label>البريد الإلكتروني<input required type="email" name="email" /></label>
+        <label>اسم الماسنجر<input required name="messenger" /></label>
+        <label>كلمة المرور<input required type="password" name="password" minlength="6" /></label>
+        <button type="submit">إنشاء الحساب</button>
+      </form>
+
+      <form id="loginForm" class="form">
+        <label>البريد الإلكتروني<input required type="email" name="email" /></label>
+        <label>كلمة المرور<input required type="password" name="password" /></label>
+        <button type="submit">تسجيل الدخول</button>
+      </form>
+      <p class="hint">حساب الأدمن الافتراضي: <code>admin@site.com / admin123</code></p>
+    </section>
+
+    <section class="card hidden" id="orderCard">
+      <h2>طلب خدمة جديدة</h2>
+      <form id="orderForm" class="form active">
+        <label>اسم الخدمة التي تريدها<input required name="serviceName" placeholder="مثال: تصميم شعار" /></label>
+        <label>الكمية<input required type="number" min="1" name="quantity" value="1" /></label>
+        <label>السعر الذي اخترته<input required type="number" min="1" step="0.01" name="price" /></label>
+        <label>تفاصيل الطلب<textarea required name="details" rows="4" placeholder="اكتب تفاصيل دقيقة"></textarea></label>
+        <button type="submit">إرسال الطلب</button>
+      </form>
+      <p class="hint">عند إرسال الطلب سيتم تسجيل إشعار بريد إلكتروني داخل النظام (نسخة تجريبية محلية).</p>
+    </section>
+
+    <section class="card hidden" id="ordersCard">
+      <div class="between">
+        <h2>طلباتي</h2>
+        <button id="logoutBtn" class="ghost">تسجيل خروج</button>
+      </div>
+      <div id="ordersList"></div>
+      <h3>الإشعارات</h3>
+      <ul id="notifications"></ul>
+    </section>
+
+    <section class="card hidden" id="adminCard">
+      <div class="between">
+        <h2>لوحة الأدمن</h2>
+        <button id="adminLogoutBtn" class="ghost">تسجيل خروج</button>
+      </div>
+      <div id="adminOrders"></div>
+      <h3>سجل الإيميلات الخارجة</h3>
+      <ul id="emailsLog"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
